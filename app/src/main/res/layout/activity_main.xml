@@ -1,24 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<GridLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:rowCount="7"
+    android:columnCount="4">
 
-    <!-- Display for showing numbers and results -->
+    <!-- Display -->
     <TextView
         android:id="@+id/tvResult"
+        android:layout_columnSpan="4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="32sp"
+        android:maxWidth="340dp"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:textSize="@dimen/text_medium"
         android:gravity="end"
-        android:background="#EEEEEE"
-        android:padding="16dp"
-        android:text="0" />
+        android:padding="8dp"
+        android:background="@color/display_background"
+        android:textColor="@android:color/white"
+        android:text="0"/>
 
     <!-- Row 1: 7, 8, 9, / -->
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -26,139 +34,228 @@
 
         <Button
             android:id="@+id/button7"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="7" />
+            android:text="@string/_7"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button8"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="8" />
+            android:text="@string/_8"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button9"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="9" />
+            android:text="@string/_9"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/buttonDivide"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="/" />
+            android:text="@string/divide"
+            android:backgroundTint="@color/operation_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
     <!-- Row 2: 4, 5, 6, * -->
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        tools:ignore="VisualLintBounds">
 
         <Button
             android:id="@+id/button4"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="4" />
+            android:text="@string/_4"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button5"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="5" />
+            android:text="@string/_5"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button6"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="6" />
+            android:text="@string/_6"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/buttonMultiply"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="*" />
+            android:text="@string/multiply"
+            android:backgroundTint="@color/operation_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
     <!-- Row 3: 1, 2, 3, - -->
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp">
+        android:layout_marginTop="8dp"
+        tools:ignore="VisualLintBounds">
 
         <Button
             android:id="@+id/button1"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="1" />
+            android:text="@string/_1"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button2"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="2" />
+            android:text="@string/_2"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/button3"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="3" />
+            android:text="@string/_3"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
 
         <Button
             android:id="@+id/buttonMinus"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:text="@string/minus"
+            android:backgroundTint="@color/operation_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
-    <!-- Row 4: C, 0, =, + -->
+    <!-- Row 4: C, 0, ., + -->
     <LinearLayout
+        style="?android:attr/buttonBarStyle"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:ignore="VisualLintBounds">
+
+        <Button
+            android:id="@+id/buttonClear"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/c"
+            android:backgroundTint="@color/clear_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/button0"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/_0"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/buttonDecimal"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/decimal_point"
+            android:backgroundTint="@color/number_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
+
+        <Button
+            android:id="@+id/buttonPlus"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="@string/plus"
+            android:backgroundTint="@color/operation_button"
+            android:textColor="@color/white"
+            tools:ignore="VisualLintButtonSize" />
+    </LinearLayout>
+    
+    <!-- Row 5: = -->
+    <LinearLayout
+        style="?android:attr/buttonBarStyle"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp">
 
         <Button
-            android:id="@+id/buttonClear"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="C" />
-
-        <Button
-            android:id="@+id/button0"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="0" />
-
-        <Button
             android:id="@+id/buttonEquals"
-            android:layout_width="0dp"
-            android:layout_weight="1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="=" />
-
-        <Button
-            android:id="@+id/buttonPlus"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="+" />
+            android:backgroundTint="@color/equals_button"
+            android:text="@string/equals"
+            android:textColor="#000000"
+            tools:ignore="VisualLintButtonSize" />
     </LinearLayout>
 
-</LinearLayout>
+</GridLayout>

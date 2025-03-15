@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="display_background">#333333</color>
+    <color name="number_button">#6200EE</color>
+    <color name="operation_button">#0277BD</color>
+    <color name="equals_button">#D84315</color>
+    <color name="clear_button">#F44336</color>
 </resources>

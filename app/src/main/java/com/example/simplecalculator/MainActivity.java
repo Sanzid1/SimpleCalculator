@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int[] numberButtonIDs = {
                 R.id.button0, R.id.button1, R.id.button2, R.id.button3,
                 R.id.button4, R.id.button5, R.id.button6, R.id.button7,
-                R.id.button8, R.id.button9
+                R.id.button8, R.id.button9, R.id.buttonDecimal
         };
 
         for (int id : numberButtonIDs) {
@@ -54,9 +54,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 id == R.id.button9) {
 
             Button numberButton = (Button) view;
-            currentNumber += numberButton.getText().toString();
+            String input = numberButton.getText().toString();
+            
+            currentNumber += input;
             tvResult.setText(currentNumber);
 
+        } else if (id == R.id.buttonDecimal) {
+            // Handle decimal point separately
+            if (!currentNumber.contains(".")) {
+                if (currentNumber.isEmpty()) {
+                    currentNumber = "0.";
+                } else {
+                    currentNumber += ".";
+                }
+                tvResult.setText(currentNumber);
+            }
         } else if (id == R.id.buttonPlus || id == R.id.buttonMinus ||
                 id == R.id.buttonMultiply || id == R.id.buttonDivide) {
 
@@ -74,22 +86,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 double secondOperand = Double.parseDouble(currentNumber);
                 double result = 0;
 
-                if (pendingOperation.equals("+")) {
-                    result = firstOperand + secondOperand;
-                } else if (pendingOperation.equals("-")) {
-                    result = firstOperand - secondOperand;
-                } else if (pendingOperation.equals("*")) {
-                    result = firstOperand * secondOperand;
-                } else if (pendingOperation.equals("/")) {
-                    if (secondOperand != 0) {
-                        result = firstOperand / secondOperand;
-                    } else {
-                        tvResult.setText("Error");
-                        resetCalculator();
-                        return;
-                    }
+                switch (pendingOperation) {
+                    case "+":
+                        result = firstOperand + secondOperand;
+                        break;
+                    case "-":
+                        result = firstOperand - secondOperand;
+                        break;
+                    case "*":
+                        result = firstOperand * secondOperand;
+                        break;
+                    case "/":
+                        if (secondOperand != 0) {
+                            result = firstOperand / secondOperand;
+                        } else {
+                            tvResult.setText(getString(R.string.error));
+                            resetCalculator();
+                            return;
+                        }
+                        break;
                 }
-                tvResult.setText(String.valueOf(result));
+                
+                // Format the result to remove unnecessary decimal zeros
+                String formattedResult;
+                if (result == (long) result) {
+                    formattedResult = String.format(java.util.Locale.US, "%d", (long) result);
+                } else {
+                    formattedResult = String.valueOf(result);
+                }
+                
+                tvResult.setText(formattedResult);
                 // Allow for chain calculations
                 firstOperand = result;
                 currentNumber = "";
@@ -99,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else if (id == R.id.buttonClear) {
 
             resetCalculator();
-            tvResult.setText("0");
+            tvResult.setText(getString(R.string.initial_value));
         }
     }
 
